@@ -15,11 +15,11 @@ except Exception as err:
     print(f'Error de conexión {err}')
 
 def Consulta():
-    res = conn.cursor()
-    res.execute('SELECT * FROM usuarios')
-    datos = res.fetchall()
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM usuarios')
+    row = cur.fetchall()
 
-    for row in datos:
+    for i in row:
         print(row)
 
 Consulta()
