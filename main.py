@@ -23,3 +23,17 @@ def Consulta():
         print(row)
 
 Consulta()
+
+def Eliminar():
+    id = int(input('Ingrese el número del id que desea eliminar: '))
+
+    res = conn.cursor()
+    sql = ('DELETE FROM usuarios WHERE id={}').format(id)
+    res.execute(sql)
+
+    conn.commit()
+    row = res.rowcount
+
+    print(f'Registro eliminado {row}')
+
+# Eliminar()
