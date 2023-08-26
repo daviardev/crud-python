@@ -13,3 +13,13 @@ try:
     print('Conexión exitosa', conn)
 except Exception as err:
     print(f'Error de conexión {err}')
+
+def Consulta():
+    res = conn.cursor()
+    res.execute('SELECT * FROM usuarios')
+    datos = res.fetchall()
+
+    for row in datos:
+        print(row)
+
+Consulta()
