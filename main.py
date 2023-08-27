@@ -50,5 +50,18 @@ def Insertar():
     row = res.rowcount
     print(f'{row} registro insertado')
 
-# Insertar()
-Consulta()
+
+def Editar():
+    id = int(input('Seleccione el dato que quiere actualizar: '))
+    nombre = str(input('Ingrese el nuevo nombre: '))
+    apellido = str(input('Ingrese el nuevo apellido: '))
+    telefono = int(input('Ingrese el nuevo número de teléfono: '))
+
+    cur = conn.cursor()
+    sql = 'UPDATE usuarios SET nombre=?, apellido=?, telefono=? WHERE id=?'
+
+    cur.execute(sql, (nombre, apellido, telefono, id))
+    conn.commit()
+
+    row = cur.rowcount
+    print(row)
