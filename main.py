@@ -22,7 +22,6 @@ def Consulta():
     for i in row:
         print(row)
 
-Consulta()
 
 def Eliminar():
     id = int(input('Ingrese el número del id que desea eliminar: '))
@@ -37,3 +36,19 @@ def Eliminar():
     print(f'Registro eliminado {row}')
 
 # Eliminar()
+
+def Insertar():
+    id = int(input('Ingrese un id válido: '))
+    nombre = str(input('Ingrese un nombre: '))
+    apellido = str(input('Ingrese un apellido: '))
+    telefono = int(input('Ingrese un número de telefono: '))
+
+    res = conn.cursor()
+    res.execute(f"INSERT INTO usuarios(id, nombre, apellido, telefono) VALUES({id},'{nombre}', '{apellido}', {telefono})")
+    conn.commit()
+
+    row = res.rowcount
+    print(f'{row} registro insertado')
+
+# Insertar()
+Consulta()
